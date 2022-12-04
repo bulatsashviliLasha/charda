@@ -3,7 +3,7 @@ import {BasicLayout} from "../styles.js";
 
 const FaqSection = () => {
   return(
-      <Faq>
+      <StyledFaq>
           <h2>Any Question <span>FAQ</span></h2>
           <div className="question">
               <h4>How Do I Start?</h4>
@@ -37,11 +37,11 @@ const FaqSection = () => {
               </div>
               <div className="faq-line"></div>
           </div>
-      </Faq>
+      </StyledFaq>
   )
 };
 
-const Faq = styled(BasicLayout)`
+const StyledFaq = styled(BasicLayout)`
   display: block;
   span{
     display: block;
