@@ -1,11 +1,13 @@
 import AboutSection from "../components/AboutSection.jsx";
+import ServicesSection from "../components/ServicesSection.jsx";
 
 const AboutUs = () => {
-  return(
-      <div>
-          <AboutSection/>
-      </div>
-  )
+    return (
+        <>
+            <AboutSection/>
+            <ServicesSection/>
+        </>
+    )
 }
 
 export default AboutUs
