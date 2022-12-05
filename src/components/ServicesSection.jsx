@@ -12,36 +12,36 @@ const ServicesSection = () => {
         <Services>
             <Description>
                 <h2>High <span>quality</span> services</h2>
-                <Cards>
-                    <Card>
+                <StyledCards>
+                    <StyledCard>
                         <div className="icon">
                             <img src={clock} alt="clock"/>
                             <h3>Efficient</h3>
                         </div>
                         <p>Lorem ipsum dolor sit amet.</p>
-                    </Card>
-                    <Card>
+                    </StyledCard>
+                    <StyledCard>
                         <div className="icon">
                             <img src={teamwork} alt="teamwork"/>
                             <h3>Teamwork</h3>
                         </div>
                         <p>Lorem ipsum dolor sit amet.</p>
-                    </Card>
-                    <Card>
+                    </StyledCard>
+                    <StyledCard>
                         <div className="icon">
                             <img src={diaphragm} alt="diaphragm"/>
                             <h3>Diaphragm</h3>
                         </div>
                         <p>Lorem ipsum dolor sit amet.</p>
-                    </Card>
-                    <Card>
+                    </StyledCard>
+                    <StyledCard>
                         <div className="icon">
                             <img src={money} alt="money"/>
                             <h3>Affordable</h3>
                         </div>
                         <p>Lorem ipsum dolor sit amet.</p>
-                    </Card>
-                </Cards>
+                    </StyledCard>
+                </StyledCards>
             </Description>
             <Image>
                 <img src={home2} alt="home"/>
@@ -60,12 +60,12 @@ const Services = styled(BasicLayout)`
   }
 `;
 
-const Cards = styled.div`
+const StyledCards = styled.div`
   display: flex;
   flex-wrap: wrap;
 `;
 
-const Card = styled.div`
+const StyledCard = styled.div`
   flex-basis: 20rem;
   .icon{
     display: flex;
