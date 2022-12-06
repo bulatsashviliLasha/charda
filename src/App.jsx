@@ -4,8 +4,8 @@ import GlobalStyles from "./assets/global styles/GlobalStyles.js";
 import OutWork from "./views/OurWork.jsx";
 import ContactUs from "./views/ContactUs.jsx";
 import MovieDetail from "./views/MovieDetail.jsx";
-
 import AboutUs from "./views/AboutUs.jsx";
+
 import Nav from "./components/Nav.jsx";
 
 import { AnimatePresence } from "framer-motion";
@@ -17,7 +17,7 @@ function App() {
     <div className="App">
         <GlobalStyles/>
         <Nav/>
-        <AnimatePresence exitBeforeEnter>
+        <AnimatePresence mode='wait'>
             <Routes location={location} key={location.key}>
                 <Route path="/" element={<AboutUs />} />
                 <Route path="/work" element={<OutWork />} />

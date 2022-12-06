@@ -1,8 +1,8 @@
 import {useEffect, useState} from "react";
-import {useLocation, useNavigate} from "react-router-dom";
+import {useLocation} from "react-router-dom";
 
 import styled from "styled-components";
-import {MovieState} from "../data/movieState.js";
+import {MovieData} from "../data/movieData.js";
 
 import { motion } from "framer-motion";
 import { pageAnimation } from "../assets/animation/animation.js";
@@ -19,12 +19,9 @@ const Award = ({title, description}) => {
 }
 
 const MovieDetail = () => {
-    const navigate = useNavigate();
     const location = useLocation();
 
-    console.log(location.pathname)
-
-    const [movies, setMovies] = useState(MovieState);
+    const [movies, setMovies] = useState(MovieData);
     const [movie, setMovie] = useState(null);
 
     useEffect(() => {

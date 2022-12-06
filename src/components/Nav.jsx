@@ -1,23 +1,22 @@
 import {Link} from "react-router-dom";
 import styled from "styled-components";
+import {scrollTop} from "./scroll.js";
+import {navData} from "../data/navData.js";
 
 const Nav = () => {
     return (
         <StyledNav>
             <h1>
-                <Link id="logo" to="/">Charda</Link>
+                <Link id="logo" to="/" onClick={scrollTop}>Charda</Link>
             </h1>
             <ul>
-                <li>
-                    <Link to="/">1. About Us</Link>
-                </li>
-                <li>
-                    <Link to="/work">2. Our Work</Link>
-                </li>
-                <li>
-                    <Link to="/contact">1. Contact Us</Link>
-                </li>
-
+                {
+                    navData.map((item, index) => {
+                        return (<li>
+                            <Link to={item.to} onClick={scrollTop}>{item.description}</Link>
+                        </li>)
+                    })
+                }
             </ul>
         </StyledNav>
     )
@@ -29,8 +28,11 @@ const StyledNav = styled.nav`
   margin: auto;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 10rem;
+  padding: 1rem 2rem;
   background-color: #282828;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 
   a {
     color: white;
@@ -42,8 +44,10 @@ const StyledNav = styled.nav`
     list-style: none;
 
     li {
-      padding-left: 10rem;
       position: relative;
+      &:not(:first-child){
+        margin-left: 25px;
+      }
     }
   }
 

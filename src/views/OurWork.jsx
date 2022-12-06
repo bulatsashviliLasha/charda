@@ -1,70 +1,80 @@
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import styled from "styled-components";
 
-import { MovieState } from "../data/movieState.js";
+import { MovieData } from "../data/movieData.js";
 
 import { motion } from "framer-motion";
-import { sliderContainer, slider, pageAnimation, fade, photoAnimation, lineAnimation } from "../assets/animation/animation.js";
+import {
+  sliderContainer,
+  slider,
+  pageAnimation,
+  fade,
+  photoAnimation,
+  lineAnimation,
+} from "../assets/animation/animation.js";
+import { scrollControlsAndElement } from "../components/scroll.js";
 
-const Movie = ({title, url, img}) => {
-    return (
-        <>
-            <motion.h2
-                variants={fade}
-            >{title}</motion.h2>
-            <motion.div
-                className="line"
-                variants={lineAnimation}
-            ></motion.div>
-            <Link to={url}>
-                <Hide>
-                    <motion.img
-                        variants={photoAnimation}
-                        src={img}
-                        alt={title}
-                    />
-                </Hide>
-            </Link>
-        </>
-    )
-}
+const Movie = ({ title, url, img }) => {
+  return (
+    <>
+      <motion.h2 variants={fade}>{title}</motion.h2>
+      <motion.div className="line" variants={lineAnimation}></motion.div>
+      <Link to={url}>
+        <Hide>
+          <motion.img variants={photoAnimation} src={img} alt={title} />
+        </Hide>
+      </Link>
+    </>
+  );
+};
 
 const OutWork = () => {
-    return (
-        <StyledWork
-            exit="exit"
-            variants={pageAnimation}
-            initial="hidden"
-            animate="show"
-            style={{background: "#fff"}}
+  const [elementOne, controlsOne] = scrollControlsAndElement();
+  const [elementTwo, controlsTwo] = scrollControlsAndElement();
+  const [elementThree, controlsThree] = scrollControlsAndElement();
+  const elements = [elementOne, elementTwo, elementThree];
+  const controls = [controlsOne, controlsTwo, controlsThree];
+  return (
+    <StyledWork
+      exit="exit"
+      variants={pageAnimation}
+      initial="hidden"
+      animate="show"
+      style={{ background: "#fff" }}
+    >
+      <motion.div variants={sliderContainer}>
+        <Frame1 variants={slider} />
+        <Frame2 variants={slider} />
+        <Frame3 variants={slider} />
+        <Frame4 variants={slider} />
+      </motion.div>
+      {MovieData.map((movie, index) => (
+        <StyledMovie
+          key={movie + index * 5}
+          ref={elements[index]}
+          variants={fade}
+          animate={controls[index]}
+          initial="hidden"
         >
-            <motion.div variants={sliderContainer}>
-                <Frame1 variants={slider} />
-                <Frame2 variants={slider} />
-                <Frame3 variants={slider} />
-                <Frame4 variants={slider} />
-            </motion.div>
-            {MovieState().map((movie, index) => (
-                <StyledMovie key={movie + (index * 5)}>
-                    <Movie img={movie.mainImg} url={movie.url} title={movie.title} />
-                </StyledMovie>
-            ))}
-        </StyledWork>
-    )
+          <Movie img={movie.mainImg} url={movie.url} title={movie.title} />
+        </StyledMovie>
+      ))}
+    </StyledWork>
+  );
 };
 
 const StyledWork = styled(motion.div)`
   min-height: 100vh;
   overflow: hidden;
-  padding: 5rem 10rem;
+  padding: 5rem 2rem;
 
   h2 {
     padding: 1rem 0;
   }
 `;
 
-const StyledMovie = styled.div`
+const StyledMovie = styled(motion.div)`
   padding-bottom: 10rem;
 
   .line {
