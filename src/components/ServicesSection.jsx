@@ -1,20 +1,20 @@
-import clock from "../img/clock.svg";
-import diaphragm from "../img/diaphragm.svg";
-import money from "../img/money.svg";
-import teamwork from "../img/teamwork.svg";
-import home2 from "../img/home2.png";
+import clock from "../assets/pictures/img/clock.svg";
+import diaphragm from "../assets/pictures/img/diaphragm.svg";
+import money from "../assets/pictures/img/money.svg";
+import teamwork from "../assets/pictures/img/teamwork.svg";
+import home2 from "../assets/pictures/img/home2.jpg";
 
 import styled from "styled-components";
-import { BasicLayout, Description, Hide, Image } from "../styles.js";
+import { BasicLayout, Description, Image } from "../styles.js";
 
 import { scrollReveal } from "../assets/animation/animation.js";
-import { scrollControlsAndElement } from "./scroll.js";
+import { scrollControlsAndElement } from "../assets/utils/scroll.js";
 
 const ServicesSection = () => {
   const [element, controls] = scrollControlsAndElement();
 
   return (
-    <Services
+    <StyledServices
       variants={scrollReveal}
       animate={controls}
       initial="hidden"
@@ -30,39 +30,39 @@ const ServicesSection = () => {
               <img src={clock} alt="clock" />
               <h3>Efficient</h3>
             </div>
-            <p>Lorem ipsum dolor sit amet.</p>
+            <p>We’ll help you complete the project on time.</p>
           </StyledCard>
           <StyledCard>
             <div className="icon">
               <img src={teamwork} alt="teamwork" />
               <h3>Teamwork</h3>
             </div>
-            <p>Lorem ipsum dolor sit amet.</p>
+            <p>Together, We create.</p>
           </StyledCard>
           <StyledCard>
             <div className="icon">
               <img src={diaphragm} alt="diaphragm" />
-              <h3>Diaphragm</h3>
+              <h3>Control</h3>
             </div>
-            <p>Lorem ipsum dolor sit amet.</p>
+            <p>Manage resources and keep control over the staff.</p>
           </StyledCard>
           <StyledCard>
             <div className="icon">
               <img src={money} alt="money" />
               <h3>Affordable</h3>
             </div>
-            <p>Lorem ipsum dolor sit amet.</p>
+            <p>Being able to cut down on internal skill development.</p>
           </StyledCard>
         </StyledCards>
       </Description>
       <Image>
         <img src={home2} alt="home" />
       </Image>
-    </Services>
+    </StyledServices>
   );
 };
 
-const Services = styled(BasicLayout)`
+const StyledServices = styled(BasicLayout)`
   display: grid;
   grid-template-columns: 1fr 1fr;
   h2 {
@@ -71,16 +71,21 @@ const Services = styled(BasicLayout)`
     grid-column: 1 / -1;
   }
   p {
-    width: 70%;
-    padding: 2rem 0rem 4rem;
+    padding: 2rem 0;
+    text-align: left;
+    width: 90%;
+  }
+  @media (max-width: 1100px){
+    grid-template-columns: 1fr;
+    justify-items: center;
   }
 `;
 
 const StyledCards = styled.div`
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 `;
-
 const StyledCard = styled.div`
   flex-basis: 20rem;
   .icon {

@@ -1,4 +1,4 @@
-import home1 from '../img/home1.png';
+import home1 from '../assets/pictures/img/home1.jpg';
 import {BasicLayout, Description, Hide, Image} from "../styles.js";
 
 import {motion} from "framer-motion";
@@ -15,33 +15,30 @@ const AboutSection = () => {
                         <motion.h2
                             variants={titleAnimation}
 
-                        >We work to make</motion.h2>
+                        >Dedicated Software</motion.h2>
                     </Hide>
                     <Hide>
                         <motion.h2
                             variants={titleAnimation}
 
-                        >your <span>dreams</span> come</motion.h2>
+                        ><span>Development</span> Team</motion.h2>
                     </Hide>
-                    <Hide>
-                        <motion.h2
-                            variants={titleAnimation}
 
-                        >true.</motion.h2>
-                    </Hide>
                 </motion.div>
                 <motion.p
                     variants={fade}
-                >Contact us for any photography or videography ideas that you have.</motion.p>
-                <motion.button
+                >Hire dedicated development team that fits your needs at scale</motion.p>
+                <motion.a
+                    href="mailto:bulatsashvili.lasha@gmail.com"
+                    className="button"
                     variants={fade}
-                >CONTACT US</motion.button>
+                >CONTACT US</motion.a>
             </Description>
             <Image>
                 <motion.img
                     variants={photoAnimation}
                     src={home1}
-                    alt="Guy with a camera"
+                    alt="Software team"
                 />
             </Image>
             <Wave />

@@ -1,5 +1,5 @@
 import Toggle from "./Toggle.jsx";
-import {scrollControlsAndElement} from "./scroll.js";
+import {scrollControlsAndElement} from "../assets/utils/scroll.js";
 
 import styled from "styled-components";
 import { BasicLayout } from "../styles.js";
@@ -25,7 +25,7 @@ const FaqSection = () => {
       ref={element}
     >
       <h2>
-        Any Question <span>FAQ</span>
+        Any Questions? <span>FAQ</span>
       </h2>
       {faqData.map((item, index) => {
         return (
@@ -60,15 +60,24 @@ const StyledFaq = styled(BasicLayout)`
   }
 
   .question {
-    padding: 3rem 0;
+    padding: 1rem 0;
     cursor: pointer;
+    section{
+      display: flex;
+      justify-content: space-between;
+      padding-right: 5px;
+      align-items: center;
+    }
   }
 
   .answer {
-    padding: 2rem 0rem;
+    padding-top: 1rem;
 
-    p {
+    p{
       padding: 1rem 0;
+      &:last-child{
+        padding:0;
+      }
     }
   }
 `;

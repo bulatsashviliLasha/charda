@@ -103,6 +103,7 @@ export const sliderContainer = {
   },
 };
 
+
 export const scrollReveal = {
   hidden: {
     opacity: 0,

@@ -1,9 +1,11 @@
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import styled from "styled-components";
-import {scrollTop} from "./scroll.js";
+import {scrollTop} from "../assets/utils/scroll.js";
 import {navData} from "../data/navData.js";
+import {motion} from "framer-motion";
 
 const Nav = () => {
+    const {pathname} = useLocation();
     return (
         <StyledNav>
             <h1>
@@ -12,8 +14,17 @@ const Nav = () => {
             <ul>
                 {
                     navData.map((item, index) => {
-                        return (<li>
+                        return (<li key={item+index}>
                             <Link to={item.to} onClick={scrollTop}>{item.description}</Link>
+                            <Line
+                                transition={{
+                                    duration: 0.75
+                                }}
+                                initial={{
+                                    width: pathname === item.to ? "100%" : "0%"
+                                }}
+                                animate={{width: pathname === item.to ? "100%" : "0%"}}
+                            />
                         </li>)
                     })
                 }
@@ -57,5 +68,13 @@ const StyledNav = styled.nav`
     font-weight: lighter;
   }
 `;
+
+const Line = styled(motion.div)`
+  height: 0.3rem;
+  background: #23d997;
+  width: 0%;
+  position: absolute;
+  bottom: -60%;
+`
 
 export default Nav

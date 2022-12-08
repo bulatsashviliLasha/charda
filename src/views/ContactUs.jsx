@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
 import { pageAnimation, titleAnimation } from "../assets/animation/animation.js";
 import styled from "styled-components";
+import linkedIn from "../assets/pictures/svg/linkedin.svg";
+import phoneIcon from "../assets/pictures/svg/phone.svg";
+import emailIcon from "../assets/pictures/svg/email.svg";
+
 
 
 const StyledContact = styled(motion.div)`
@@ -18,25 +22,11 @@ const StyledTitle = styled.div`
 
 const Hide = styled.div`
   overflow: hidden;
-  h2{
-    font-size: 2rem;
-  }
-`;
-
-const Circle = styled.div`
-  border-radius: 50%;
-  width: 1rem;
-  height: 1rem;
-  background: #353535;
 `;
 
 const Social = styled(motion.div)`
   display: flex;
   align-items: center;
-  h2{
-    margin: 2rem;
-    font-size: 1.5rem;
-  }
 `;
 
 const ContactUs = () => {
@@ -53,25 +43,29 @@ const ContactUs = () => {
                     <motion.h2 variants={titleAnimation}>Get in touch.</motion.h2>
                 </Hide>
             </StyledTitle>
-            <div>
+            <div style={{display: "flex", justifyContent: "center", gap: "30px"}}>
                 <Hide>
                     <Social variants={titleAnimation}>
-                        <Circle/>
-                        <h2>Send Us A Message</h2>
+                        <a href="mailto:bulatsashvili.lasha@gmail.com">
+                            <img style={{width: "50px"}} src={emailIcon} alt="email"/>
+                        </a>
                     </Social>
                 </Hide>
                 <Hide>
                     <Social variants={titleAnimation}>
-                        <Circle/>
-                        <h2>Send an Email.</h2>
+                        <a href="https://www.linkedin.com/in/lasha-bulatsashvili/" target="_blank">
+                            <img style={{width: "50px"}} src={linkedIn} alt="linkedIn"/>
+                        </a>
                     </Social>
                 </Hide>
                 <Hide>
                     <Social variants={titleAnimation}>
-                        <Circle/>
-                        <h2>Social Media</h2>
+                        <a href="tel:+995511146232">
+                            <img style={{width: "50px"}} src={phoneIcon} alt="phoneIcon"/>
+                        </a>
                     </Social>
                 </Hide>
+
 
             </div>
         </StyledContact>

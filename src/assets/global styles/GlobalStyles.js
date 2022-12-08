@@ -25,13 +25,17 @@ const GlobalStyles = createGlobalStyle`
       scroll-behavior: smooth;
     }
     
+    a{
+      text-decoration: none;
+    }
+    
     body{
       background: #1b1b1b;
       font-family: 'Inter', sans-serif;
       overflow-x: hidden;
     }
     
-    button{
+    button, .button{
       font-weight: bold;
       font-size: 1.1rem;
       cursor: pointer;
@@ -49,7 +53,7 @@ const GlobalStyles = createGlobalStyle`
     
     h2{
       font-weight: lighter;
-      font-size: 4rem;
+      font-size: 3rem;
     }
     
     h3{
@@ -58,12 +62,17 @@ const GlobalStyles = createGlobalStyle`
     
     h4{
       font-weight: bold;
-      font-size: 2rem;
+      font-size: 1.7rem;
     }
     
     a{
       font-size: 1.1rem;
     }
+  @media (max-width: 768px){
+    a{
+      font-size: 0.8rem;
+    }
+  }
     
     span{
       font-weight: bold;

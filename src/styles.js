@@ -2,12 +2,15 @@ import styled from "styled-components";
 import {motion} from "framer-motion";
 
 export const BasicLayout = styled(motion.div)`
-  min-height: 90vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 5rem 2rem;
   color: white;
+  @media (max-width: 1100px){
+    display: block;
+    text-align: center;
+  }
 `;
 
 export const Description = styled.div`
@@ -17,6 +20,9 @@ export const Description = styled.div`
   h2{
     font-weight: lighter;
   }
+  @media (max-width: 1100px){
+    padding-right: 0;
+  }
 `;
 
 export const Image = styled.div`
@@ -24,9 +30,10 @@ export const Image = styled.div`
   flex: 1;
   overflow: hidden;
   border-radius: 20px;
+  margin-top: 50px;
   img{
     width: 100%;
-    height: 80vh;
+    max-height: 500px;
     object-fit: cover;
   }
 `;

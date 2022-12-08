@@ -1,75 +1,75 @@
-import athlete from '../img/athlete-small.png';
-import goodtimes from '../img/goodtimes-small.png';
-import theracer from '../img/theracer-small.png';
-import athlete2 from '../img/athlete2.png';
-import goodtimes2 from '../img/good-times2.jpg';
-import theracer2 from '../img/the-racer2.jpg';
+import frontEnd1 from '../assets/pictures/img/front-end1.jpg';
+import backEnd2 from '../assets/pictures/img/backEnd1.webp';
+import agile2 from '../assets/pictures/img/agile1.jpg';
+import frontEnd2 from '../assets/pictures/img/front-end2.jpg';
+import backEnd1 from '../assets/pictures/img/backEnd2.jpg';
+import agile1 from '../assets/pictures/img/agile2.jpg';
 
 export const MovieData = [
     {
-        title: 'The Athlete',
-        mainImg: athlete,
-        secondaryImg: athlete2,
-        url: '/work/the-athlete',
+        title: 'Front-End',
+        mainImg: frontEnd1,
+        secondaryImg: frontEnd2,
+        url: '/work/front-end',
         awards: [
             {
-                title: 'Truly A masterpiece',
+                title: 'Vue',
                 description:
-                    '“Lorem Ipsum is simply dummy text of the printing and typesetting industry.”',
+                    'Vue 2 to Vue 3 We support both version.',
             },
             {
-                title: 'Fresh look on a brutal sport.',
+                title: 'React',
                 description:
-                    '“Lorem Ipsum is simply dummy text of the printing and typesetting industry.”',
+                    'As well as Functional also classed based Components',
             },
             {
-                title: 'It’s okay lmao.',
+                title: 'CSS3',
                 description:
-                    '“Lorem Ipsum is simply dummy text of the printing and typesetting industry.”',
+                    'SASS/SCSS/LESS TailwindCSS Bootstrap',
             },
         ],
     },
     {
-        title: 'Good Times',
-        mainImg: goodtimes,
-        url: '/work/good-times',
-        secondaryImg: goodtimes2,
+        title: 'Back-End',
+        mainImg: backEnd1,
+        url: '/work/back-end',
+        secondaryImg: backEnd2,
         awards: [
             {
-                title: 'Truly A masterpiece',
+                title: 'Node.js',
                 description:
                     '“Lorem Ipsum is simply dummy text of the printing and typesetting industry.”',
             },
             {
-                title: 'Fresh look on a brutal sport.',
+                title: 'Python',
                 description:
                     '“Lorem Ipsum is simply dummy text of the printing and typesetting industry.”',
             },
             {
-                title: 'It’s okay lmao.',
+                title: 'SQL | NoSQL',
                 description:
-                    '“Lorem Ipsum is simply dummy text of the printing and typesetting industry.”',
+                    'Supporting both SQL and NoSQL databases',
             },
         ],
     },
     {
-        title: 'The Racer',
-        mainImg: theracer,
-        url: '/work/the-racer',
-        secondaryImg: theracer2,
+        title: 'Agile',
+        mainImg: agile1,
+        url: '/work/agile',
+        secondaryImg: agile2,
         awards: [
             {
-                title: 'Truly A masterpiece',
+                title: 'Scrum',
                 description:
                     '“Lorem Ipsum is simply dummy text of the printing and typesetting industry.”',
             },
             {
-                title: 'Fresh look on a brutal sport.',
+                title: 'Waterfall',
                 description:
                     '“Lorem Ipsum is simply dummy text of the printing and typesetting industry.”',
             },
             {
-                title: 'It’s okay lmao.',
+                title: 'Kanban',
                 description:
                     '“Lorem Ipsum is simply dummy text of the printing and typesetting industry.”',
             },

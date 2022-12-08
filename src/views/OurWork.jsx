@@ -1,3 +1,5 @@
+import Tilt from 'react-vanilla-tilt'
+
 import { Link } from "react-router-dom";
 
 import styled from "styled-components";
@@ -13,18 +15,20 @@ import {
   photoAnimation,
   lineAnimation,
 } from "../assets/animation/animation.js";
-import { scrollControlsAndElement } from "../components/scroll.js";
+import { scrollControlsAndElement } from "../assets/utils/scroll.js";
 
 const Movie = ({ title, url, img }) => {
   return (
     <>
       <motion.h2 variants={fade}>{title}</motion.h2>
       <motion.div className="line" variants={lineAnimation}></motion.div>
-      <Link to={url}>
-        <Hide>
-          <motion.img variants={photoAnimation} src={img} alt={title} />
-        </Hide>
-      </Link>
+        <Link to={url}>
+          <Hide>
+            <Tilt style={{width: "100%"}}>
+            <motion.img variants={photoAnimation} src={img} alt={title} />
+            </Tilt>
+          </Hide>
+        </Link>
     </>
   );
 };
@@ -65,17 +69,19 @@ const OutWork = () => {
 };
 
 const StyledWork = styled(motion.div)`
-  min-height: 100vh;
   overflow: hidden;
   padding: 5rem 2rem;
 
   h2 {
     padding: 1rem 0;
   }
+  @media (max-width: 768px){
+    padding: 2rem;
+  }
 `;
 
 const StyledMovie = styled(motion.div)`
-  padding-bottom: 10rem;
+  padding-bottom: 4rem;
 
   .line {
     height: 0.5rem;
@@ -85,7 +91,7 @@ const StyledMovie = styled(motion.div)`
 
   img {
     width: 100%;
-    height: 70vh;
+    max-height: 650px;
     object-fit: cover;
   }
 `;

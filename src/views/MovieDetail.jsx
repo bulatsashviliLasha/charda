@@ -65,42 +65,45 @@ const StyledDetails = styled(motion.div)`
 `;
 
 const StyledHeadline = styled.div`
-  min-height: 90vh;
-  padding-top: 20vh;
-  position: relative;
   h2{
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translate(-50%, -10%);
+   text-align: center;
+    font-size: 2.5rem;
+    margin: 2rem 0;
   }
   img{
     width: 100%;
-    height: 70vh;
+    max-height: 600px;
     object-fit: cover;
+  }
+  @media (max-width: 700px){
+    h2{
+      font-size: 1.9rem;
+    }
   }
 `;
 
 const StyledAwards = styled.div`
-  min-height: 80vh;
   display: flex;
-  margin: 5rem 10rem;
+  margin: 3rem 2rem;
   align-items: center;
   justify-content: space-around;
+  @media (max-width: 1150px){
+    flex-wrap: wrap;
+  }
 `;
 
 const StyledImageDisplay = styled.div`
-  min-height: 50vh;
   img{
     width: 100%;
-    height: 100vh;
+    max-height: 600px;
     object-fit: cover;
   }
 `
 
 
 const StyledAward = styled.div`
-  padding: 5rem;
+  padding: 2rem;
+  text-align: center;
   h3{
     font-size: 2rem;
   }
