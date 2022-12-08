@@ -1,16 +1,16 @@
-import clock from "../assets/pictures/img/clock.svg";
-import diaphragm from "../assets/pictures/img/diaphragm.svg";
-import money from "../assets/pictures/img/money.svg";
-import teamwork from "../assets/pictures/img/teamwork.svg";
-import home2 from "../assets/pictures/img/home2.jpg";
+import styled from 'styled-components';
+import clock from '../assets/pictures/img/clock.svg';
+import diaphragm from '../assets/pictures/img/diaphragm.svg';
+import money from '../assets/pictures/img/money.svg';
+import teamwork from '../assets/pictures/img/teamwork.svg';
+import home2 from '../assets/pictures/img/home2.jpg';
 
-import styled from "styled-components";
-import { BasicLayout, Description, Image } from "../styles.js";
+import { BasicLayout, Description, Image } from '../styles';
 
-import { scrollReveal } from "../assets/animation/animation.js";
-import { scrollControlsAndElement } from "../assets/utils/scroll.js";
+import { scrollReveal } from '../assets/animation/animation';
+import { scrollControlsAndElement } from '../assets/utils/scroll';
 
-const ServicesSection = () => {
+function ServicesSection() {
   const [element, controls] = scrollControlsAndElement();
 
   return (
@@ -21,7 +21,11 @@ const ServicesSection = () => {
       ref={element}
     >
       <h2>
-        High <span>quality</span> services
+        High
+        {' '}
+        <span>quality</span>
+        {' '}
+        services
       </h2>
       <Description>
         <StyledCards>
@@ -60,7 +64,7 @@ const ServicesSection = () => {
       </Image>
     </StyledServices>
   );
-};
+}
 
 const StyledServices = styled(BasicLayout)`
   display: grid;

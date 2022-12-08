@@ -1,23 +1,23 @@
-import AboutSection from "../components/AboutSection.jsx";
-import ServicesSection from "../components/ServicesSection.jsx";
-import FaqSection from "../components/FaqSection.jsx";
+import { motion } from 'framer-motion';
+import AboutSection from '../components/AboutSection';
+import ServicesSection from '../components/ServicesSection';
+import FaqSection from '../components/FaqSection';
 
-import { motion } from "framer-motion";
-import { pageAnimation } from "../assets/animation/animation.js";
+import { pageAnimation } from '../assets/animation/animation';
 
-const AboutUs = () => {
-    return (
-        <motion.div
-            exit="exit"
-            variants={pageAnimation}
-            initial="hidden"
-            animate="show"
-        >
-            <AboutSection/>
-            <ServicesSection/>
-            <FaqSection/>
-        </motion.div>
-    )
+function AboutUs() {
+  return (
+    <motion.div
+      exit="exit"
+      variants={pageAnimation}
+      initial="hidden"
+      animate="show"
+    >
+      <AboutSection />
+      <ServicesSection />
+      <FaqSection />
+    </motion.div>
+  );
 }
 
-export default AboutUs
+export default AboutUs;

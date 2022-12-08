@@ -1,63 +1,62 @@
-import {useEffect, useState} from "react";
-import {useLocation} from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
-import styled from "styled-components";
-import {MovieData} from "../data/movieData.js";
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import MovieData from '../data/movieData';
 
-import { motion } from "framer-motion";
-import { pageAnimation } from "../assets/animation/animation.js";
+import { pageAnimation } from '../assets/animation/animation';
 
-
-const Award = ({title, description}) => {
-    return(
-        <StyledAward>
-            <h3>{title}</h3>
-            <div className="line"></div>
-            <p>{description}</p>
-        </StyledAward>
-    )
+function Award({ title, description }) {
+  return (
+    <StyledAward>
+      <h3>{title}</h3>
+      <div className="line" />
+      <p>{description}</p>
+    </StyledAward>
+  );
 }
 
-const MovieDetail = () => {
-    const location = useLocation();
+function MovieDetail() {
+  const location = useLocation();
 
-    const [movies, setMovies] = useState(MovieData);
-    const [movie, setMovie] = useState(null);
+  const [movies, setMovies] = useState(MovieData);
+  const [movie, setMovie] = useState(null);
 
-    useEffect(() => {
-        const currentMovie = movies.find((stateMovie) => stateMovie.url === location.pathname);
-        setMovie(currentMovie);
-    }, [movies, location.pathname])
+  useEffect(() => {
+    const currentMovie = movies.find((stateMovie) => stateMovie.url === location.pathname);
+    setMovie(currentMovie);
+  }, [movies, location.pathname]);
 
-    return (
-        <>
-            {movie && (
-                <StyledDetails
-                    exit="exit"
-                    variants={pageAnimation}
-                    initial="hidden"
-                    animate="show"
-                >
-                    <StyledHeadline>
-                        <h2>{movie.title}</h2>
-                        <img src={movie.mainImg} alt="movie"/>
-                    </StyledHeadline>
-                    <StyledAwards>
-                        {movie.awards.map((award, index) => (
-                            <Award
-                                key={award.title + index}
-                                title={award.title}
-                                description={award.description}
-                            />
-                        ))}
-                    </StyledAwards>
-                    <StyledImageDisplay>
-                        <img src={movie.secondaryImg} alt="movie"/>
-                    </StyledImageDisplay>
-                </StyledDetails>
-            )}
-        </>
-    )
+  return (
+    <>
+      {movie && (
+        <StyledDetails
+          exit="exit"
+          variants={pageAnimation}
+          initial="hidden"
+          animate="show"
+        >
+          <StyledHeadline>
+            <h2>{movie.title}</h2>
+            <img src={movie.mainImg} alt="movie" />
+          </StyledHeadline>
+          <StyledAwards>
+            {movie.awards.map((award) => (
+              <Award
+                key={award.key}
+                title={award.title}
+                description={award.description}
+              />
+            ))}
+          </StyledAwards>
+          <StyledImageDisplay>
+            <img src={movie.secondaryImg} alt="movie" />
+          </StyledImageDisplay>
+        </StyledDetails>
+      )}
+    </>
+  );
 }
 
 const StyledDetails = styled(motion.div)`
@@ -98,8 +97,7 @@ const StyledImageDisplay = styled.div`
     max-height: 600px;
     object-fit: cover;
   }
-`
-
+`;
 
 const StyledAward = styled.div`
   padding: 2rem;

@@ -1,12 +1,12 @@
-import Tilt from 'react-vanilla-tilt'
+import Tilt from 'react-vanilla-tilt';
 
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { MovieData } from "../data/movieData.js";
-
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
+import { scrollTop, scrollControlsAndElement } from '../assets/utils/scroll';
+import MovieData from '../data/movieData';
 import {
   sliderContainer,
   slider,
@@ -14,26 +14,25 @@ import {
   fade,
   photoAnimation,
   lineAnimation,
-} from "../assets/animation/animation.js";
-import { scrollControlsAndElement } from "../assets/utils/scroll.js";
+} from '../assets/animation/animation';
 
-const Movie = ({ title, url, img }) => {
+function Movie({ title, url, img }) {
   return (
     <>
       <motion.h2 variants={fade}>{title}</motion.h2>
-      <motion.div className="line" variants={lineAnimation}></motion.div>
-        <Link to={url}>
-          <Hide>
-            <Tilt style={{width: "100%"}}>
+      <motion.div className="line" variants={lineAnimation} />
+      <Link to={url} onClick={scrollTop}>
+        <Hide>
+          <Tilt style={{ width: '100%' }}>
             <motion.img variants={photoAnimation} src={img} alt={title} />
-            </Tilt>
-          </Hide>
-        </Link>
+          </Tilt>
+        </Hide>
+      </Link>
     </>
   );
-};
+}
 
-const OutWork = () => {
+function OutWork() {
   const [elementOne, controlsOne] = scrollControlsAndElement();
   const [elementTwo, controlsTwo] = scrollControlsAndElement();
   const [elementThree, controlsThree] = scrollControlsAndElement();
@@ -45,7 +44,7 @@ const OutWork = () => {
       variants={pageAnimation}
       initial="hidden"
       animate="show"
-      style={{ background: "#fff" }}
+      style={{ background: '#fff' }}
     >
       <motion.div variants={sliderContainer}>
         <Frame1 variants={slider} />
@@ -55,7 +54,7 @@ const OutWork = () => {
       </motion.div>
       {MovieData.map((movie, index) => (
         <StyledMovie
-          key={movie + index * 5}
+          key={movie.key}
           ref={elements[index]}
           variants={fade}
           animate={controls[index]}
@@ -66,7 +65,7 @@ const OutWork = () => {
       ))}
     </StyledWork>
   );
-};
+}
 
 const StyledWork = styled(motion.div)`
   overflow: hidden;

@@ -1,21 +1,21 @@
-import Toggle from "./Toggle.jsx";
-import {scrollControlsAndElement} from "../assets/utils/scroll.js";
+import styled from 'styled-components';
+import { LayoutGroup } from 'framer-motion';
+import Toggle from './Toggle';
+import { scrollControlsAndElement } from '../assets/utils/scroll';
 
-import styled from "styled-components";
-import { BasicLayout } from "../styles.js";
-import faqData from "../data/faqData.js";
-import { LayoutGroup } from "framer-motion";
-import { scrollReveal } from "../assets/animation/animation.js";
+import { BasicLayout } from '../styles';
+import faqData from '../data/faqData';
+import { scrollReveal } from '../assets/animation/animation';
 
-const Answer = ({ textOne, textTwo }) => {
+function Answer({ textOne, textTwo }) {
   return (
     <div className="answer">
       <p>{textOne}</p>
       <p>{textTwo}</p>
     </div>
   );
-};
-const FaqSection = () => {
+}
+function FaqSection() {
   const [element, controls] = scrollControlsAndElement();
   return (
     <StyledFaq
@@ -25,20 +25,20 @@ const FaqSection = () => {
       ref={element}
     >
       <h2>
-        Any Questions? <span>FAQ</span>
+        Any Questions?
+        {' '}
+        <span>FAQ</span>
       </h2>
-      {faqData.map((item, index) => {
-        return (
-          <LayoutGroup key={item.title + index}>
-            <Toggle title={item.title}>
-              <Answer textOne={item.firstText} textTwo={item.secondText} />
-            </Toggle>
-          </LayoutGroup>
-        );
-      })}
+      {faqData.map((item, index) => (
+        <LayoutGroup key={item.title + index}>
+          <Toggle title={item.title}>
+            <Answer textOne={item.firstText} textTwo={item.secondText} />
+          </Toggle>
+        </LayoutGroup>
+      ))}
     </StyledFaq>
   );
-};
+}
 
 const StyledFaq = styled(BasicLayout)`
   display: block;

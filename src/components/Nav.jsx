@@ -1,36 +1,36 @@
-import {Link, useLocation} from "react-router-dom";
-import styled from "styled-components";
-import {scrollTop} from "../assets/utils/scroll.js";
-import {navData} from "../data/navData.js";
-import {motion} from "framer-motion";
+import { Link, useLocation } from 'react-router-dom';
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import { scrollTop } from '../assets/utils/scroll';
+import navData from '../data/navData';
 
-const Nav = () => {
-    const {pathname} = useLocation();
-    return (
-        <StyledNav>
-            <h1>
-                <Link id="logo" to="/" onClick={scrollTop}>Charda</Link>
-            </h1>
-            <ul>
-                {
-                    navData.map((item, index) => {
-                        return (<li key={item+index}>
-                            <Link to={item.to} onClick={scrollTop}>{item.description}</Link>
-                            <Line
-                                transition={{
-                                    duration: 0.75
-                                }}
-                                initial={{
-                                    width: pathname === item.to ? "100%" : "0%"
-                                }}
-                                animate={{width: pathname === item.to ? "100%" : "0%"}}
-                            />
-                        </li>)
-                    })
+function Nav() {
+  const { pathname } = useLocation();
+  return (
+    <StyledNav>
+      <h1>
+        <Link id="logo" to="/" onClick={scrollTop}>Charda</Link>
+      </h1>
+      <ul>
+        {
+                    navData.map((item) => (
+                      <li key={item.key}>
+                        <Link to={item.to} onClick={scrollTop}>{item.description}</Link>
+                        <Line
+                          transition={{
+                            duration: 0.75,
+                          }}
+                          initial={{
+                            width: pathname === item.to ? '100%' : '0%',
+                          }}
+                          animate={{ width: pathname === item.to ? '100%' : '0%' }}
+                        />
+                      </li>
+                    ))
                 }
-            </ul>
-        </StyledNav>
-    )
+      </ul>
+    </StyledNav>
+  );
 }
 
 const StyledNav = styled.nav`
@@ -75,6 +75,6 @@ const Line = styled(motion.div)`
   width: 0%;
   position: absolute;
   bottom: -60%;
-`
+`;
 
-export default Nav
+export default Nav;
